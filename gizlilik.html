@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gizlilik Politikası | Beton Takip</title>
+    <meta name="description" content="Beton Takip gizlilik politikası — verilerinizin nasıl toplandığını, kullanıldığını ve korunduğunu öğrenin." />
+    <style>
+      :root {
+        --bg: #f2f1ee;
+        --bg-soft: #ebe6df;
+        --panel: #f8f6f2;
+        --panel-strong: #ffffff;
+        --text: #171717;
+        --muted: #5c5f66;
+        --dark: #151515;
+        --dark-soft: #262626;
+        --gold: #d5a25f;
+        --gold-dark: #a96f2d;
+        --line: rgba(17, 17, 17, 0.08);
+        --shadow: 0 22px 52px rgba(17, 17, 17, 0.09);
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+        color: var(--text);
+      }
+
+      a { color: inherit; text-decoration: none; }
+      button { font: inherit; }
+      img { display: block; max-width: 100%; }
+
+      .page {
+        max-width: 1220px;
+        margin: 0 auto;
+        padding: 32px 24px 48px;
+      }
+
+      .site-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 18px 0 24px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .brand-mark {
+        width: 58px;
+        height: 58px;
+        display: grid;
+        place-items: center;
+        border-radius: 16px;
+        background: linear-gradient(135deg, #111111 0%, #2b2b2b 100%);
+        color: white;
+        font-size: 1.15rem;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        box-shadow: var(--shadow);
+      }
+
+      .brand-text {
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        font-weight: 800;
+        letter-spacing: -0.07em;
+        margin: 0;
+      }
+
+      .main-nav {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        font-weight: 600;
+        color: var(--muted);
+      }
+
+      .main-nav a {
+        transition: color 0.2s ease;
+      }
+
+      .main-nav a:hover { color: var(--dark); }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+        color: var(--muted);
+        transition: color 0.2s ease;
+      }
+
+      .back-link:hover { color: var(--dark); }
+
+      .back-link::before {
+        content: "←";
+        font-size: 1.1rem;
+      }
+
+      .privacy-hero {
+        margin-top: 26px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 9px 15px;
+        border-radius: 999px;
+        background: rgba(17,17,17,0.04);
+        border: 1px solid rgba(17,17,17,0.06);
+        font-size: 0.76rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--gold);
+        box-shadow: 0 0 16px rgba(213,162,95,0.8);
+      }
+
+      .privacy-hero h1 {
+        margin: 22px 0 16px;
+        font-size: clamp(2.4rem, 5vw, 4rem);
+        line-height: 1.02;
+        letter-spacing: -0.08em;
+      }
+
+      .privacy-hero p {
+        max-width: 640px;
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: var(--muted);
+        margin: 0;
+      }
+
+      .updated-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 22px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgba(213,162,95,0.12);
+        border: 1px solid rgba(169,111,45,0.18);
+        color: var(--gold-dark);
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+      }
+
+      .privacy-layout {
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        gap: 34px;
+        align-items: start;
+        margin-top: 44px;
+      }
+
+      .privacy-toc {
+        position: sticky;
+        top: 24px;
+        background: rgba(255,255,255,0.6);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 18px 16px;
+        box-shadow: 0 12px 24px rgba(17,17,17,0.04);
+      }
+
+      .privacy-toc h2 {
+        margin: 0 0 12px;
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .privacy-toc a {
+        display: block;
+        padding: 9px 12px;
+        border-radius: 10px;
+        font-size: 0.92rem;
+        font-weight: 600;
+        color: var(--muted);
+        transition: background 0.2s ease, color 0.2s ease;
+      }
+
+      .privacy-toc a:hover {
+        background: rgba(213,162,95,0.12);
+        color: var(--dark);
+      }
+
+      .privacy-content {
+        display: grid;
+        gap: 20px;
+      }
+
+      .privacy-card {
+        background: rgba(255,255,255,0.58);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 26px 24px;
+        box-shadow: 0 12px 24px rgba(17,17,17,0.04);
+        scroll-margin-top: 24px;
+      }
+
+      .privacy-card h2 {
+        margin: 0 0 14px;
+        font-size: 1.5rem;
+        letter-spacing: -0.05em;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .privacy-card h2 .num {
+        width: 34px;
+        height: 34px;
+        flex: none;
+        display: grid;
+        place-items: center;
+        border-radius: 10px;
+        background: linear-gradient(135deg, rgba(213,162,95,0.18), rgba(169,111,45,0.06));
+        color: var(--gold-dark);
+        font-size: 0.95rem;
+      }
+
+      .privacy-card p,
+      .privacy-card li {
+        color: #3a3d45;
+        line-height: 1.75;
+        font-size: 1rem;
+      }
+
+      .privacy-card p { margin: 0 0 12px; }
+      .privacy-card p:last-child { margin-bottom: 0; }
+
+      .privacy-card ul {
+        margin: 10px 0 0;
+        padding-left: 20px;
+        display: grid;
+        gap: 8px;
+      }
+
+      .privacy-card li::marker { color: var(--gold-dark); }
+
+      .highlight-box {
+        margin-top: 16px;
+        padding: 16px 18px;
+        border-radius: 14px;
+        background: rgba(213,162,95,0.1);
+        border: 1px solid rgba(169,111,45,0.16);
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .highlight-box::before {
+        content: "ℹ";
+        flex: none;
+        color: var(--gold-dark);
+        font-weight: 700;
+      }
+
+      .highlight-box p {
+        margin: 0;
+        color: #4a4042;
+      }
+
+      .footer {
+        padding: 20px 0 10px;
+        text-align: center;
+        color: rgba(23,23,23,0.7);
+        font-size: 0.9rem;
+      }
+
+      .legal-links {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 16px;
+      }
+
+      .legal-links a {
+        cursor: pointer;
+      }
+
+      .legal-links a.active {
+        color: var(--gold-dark);
+        font-weight: 600;
+      }
+
+      @media (max-width: 860px) {
+        .privacy-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .privacy-toc {
+          position: static;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 4px;
+        }
+
+        .privacy-toc h2 {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .site-header {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .main-nav {
+          width: 100%;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
+        .back-link {
+          margin-top: 14px;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .page {
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="site-header">
+        <a href="Betan.html" class="brand" aria-label="Beton Takip ana sayfası">
+          <div class="brand-mark">BT</div>
+          <h1 class="brand-text">Beton Takip</h1>
+        </a>
+
+        <nav class="main-nav" aria-label="Ana menü">
+          <a href="Betan.html#anasayfa">Anasayfa</a>
+          <a href="Betan.html#ozellikler">Özellikler</a>
+          <a href="Betan.html#iletisim">İletişim</a>
+        </nav>
+      </header>
+
+      <a href="Betan.html" class="back-link">Ana sayfaya dön</a>
+
+      <section class="privacy-hero">
+        <div class="eyebrow">Bilgi Güvenliği</div>
+        <h1>Gizlilik Politikası</h1>
+        <p>
+          Beton Takip olarak verilerinizin gizliliğine önem veriyoruz. Bu politika;
+          bilgilerinizi nasıl topladığımızı, kullandığımızı, sakladığımızı ve koruduğumuzu
+          şeffaf bir şekilde açıklar.
+        </p>
+        <div class="updated-badge">Son güncelleme: 17 Ağustos 2026</div>
+      </section>
+
+      <div class="privacy-layout">
+        <aside class="privacy-toc" aria-label="Sayfa içi gezinme">
+          <h2>İçindekiler</h2>
+          <a href="#tanimlar">1. Tanımlar</a>
+          <a href="#toplanan-veriler">2. Toplanan Veriler</a>
+          <a href="#kullanim-amaci">3. Kullanım Amacı</a>
+          <a href="#paylasim">4. Veri Paylaşımı</a>
+          <a href="#saklama">5. Saklama ve Güvenlik</a>
+          <a href="#haklariniz">6. Haklarınız</a>
+          <a href="#cerezler">7. Çerezler</a>
+          <a href="#iletisim-bilgileri">8. İletişim</a>
+        </aside>
+
+        <div class="privacy-content">
+          <article class="privacy-card" id="tanimlar">
+            <h2><span class="num">1</span> Tanımlar</h2>
+            <p>
+              "Beton Takip", beton üretim, teslimat, kalite kontrol ve raporlama süreçlerinin
+              tek platform üzerinden yönetilmesini sağlayan yazılımı ifade eder.
+            </p>
+            <p>
+              "Veri", bu yazılımın kullanımı sırasında kullanıcılar tarafından sisteme
+              aktarılan veya sistem tarafından oluşturulan her türlü bilgiyi kapsar.
+            </p>
+            <ul>
+              <li>Kişisel veri: Bir kişinin kimliğini belirleyen bilgilerdir.</li>
+              <li>Operasyonel veri: Proje, üretim ve teslimat kayıtlarıdır.</li>
+              <li>Teknik veri: Giriş kayıtları ve cihaz bilgileridir.</li>
+            </ul>
+          </article>
+
+          <article class="privacy-card" id="toplanan-veriler">
+            <h2><span class="num">2</span> Toplanan Veriler</h2>
+            <p>
+              Hizmetlerimizin düzgün çalışabilmesi ve ihtiyaçlarınıza uygun deneyimler
+              sunabilmesi için aşağıdaki veriler toplanabilir:
+            </p>
+            <ul>
+              <li><strong>Kimlik bilgileri:</strong> Ad, soyad, iş e-posta adresi ve kurumsal iletişim bilgileri.</li>
+              <li><strong>Proje verileri:</strong> Proje adı, konum, beton üretim ve teslimat kayıtları.</li>
+              <li><strong>Kullanım verileri:</strong> İşlem zamanları, hesap aktiviteleri ve cihaz bilgileri.</li>
+              <li><strong>Teknik veriler:</strong> IP adresi, tarayıcı ve işletim sistemi bilgileri.</li>
+            </ul>
+            <div class="highlight-box">
+              <p>Veriler yalnızca yasal çerçevede, hizmetin gerektirdiği ölçüde ve açık rızanız doğrultusunda toplanır.</p>
+            </div>
+          </article>
+
+          <article class="privacy-card" id="kullanim-amaci">
+            <h2><span class="num">3</span> Kullanım Amacı</h2>
+            <p>Toplanan veriler aşağıdaki amaçlarla kullanılır:</p>
+            <ul>
+              <li>Beton kayıtlarının doğru ve zamanında kaydedilmesi.</li>
+              <li>Gerçek zamanlı raporlama ve operasyonel analizlerin oluşturulması.</li>
+              <li>İş süreçlerinin ve kullanıcı deneyiminin iyileştirilmesi.</li>
+              <li>Yasal yükümlülüklerin yerine getirilmesi.</li>
+            </ul>
+            <p>
+              Verileriniz, hiçbir koşulda bu amaçlar dışında bağımsız pazarlama veya reklam
+              çalışmalarında otomatik olarak kullanılmaz.
+            </p>
+          </article>
+
+          <article class="privacy-card" id="paylasim">
+            <h2><span class="num">4</span> Veri Paylaşımı</h2>
+            <p>
+              Kişisel verileriniz, açık rızanız olmadan üçüncü taraflarla paylaşılmaz, satılmaz
+              veya kiralanmaz.
+            </p>
+            <ul>
+              <li>Yetkili kamu kurumlarına yasal zorunluluk halinde bilgi verilebilir.</li>
+              <li>Hizmet sağlayıcılarımızla yalnızca hizmetin yürütülmesi için gizlilik sözleşmesi kapsamında paylaşılır.</li>
+              <li>Birleşme veya devralma durumunda bilgilendirme yapılır.</li>
+            </ul>
+          </article>
+
+          <article class="privacy-card" id="saklama">
+            <h2><span class="num">5</span> Saklama ve Güvenlik</h2>
+            <p>
+              Verileriniz, amaçlarının gerektirdiği süre boyunca güvenli ortamlarda saklanır ve
+              gerektiğinde anonimleştirilir veya silinir.
+            </p>
+            <ul>
+              <li>Veriler şifreleme ve erişim kontrolü yöntemleriyle korunur.</li>
+              <li>Yalnızca yetkili personel gerektiği ölçüde erişim sağlayabilir.</li>
+              <li>Periyodik güvenlik denetimleri ve yedekleme işlemleri uygulanır.</li>
+            </ul>
+            <div class="highlight-box">
+              <p>Olası bir veri ihlali durumunda ilgili kurum ve kullanıcılar yasal süreler içinde bilgilendirilir.</p>
+            </div>
+          </article>
+
+          <article class="privacy-card" id="haklariniz">
+            <h2><span class="num">6</span> Haklarınız</h2>
+            <p>Verileriniz üzerinde aşağıdaki haklara sahipsiniz:</p>
+            <ul>
+              <li>Verilerinizin işlenip işlenmediğini öğrenme ve erişim talep etme.</li>
+              <li>Hatalı verilerin düzeltilmesini isteme.</li>
+              <li>Verilerinizin silinmesini veya anonimleştirilmesini talep etme.</li>
+              <li>Verilerinizin işlenmesine itiraz etme.</li>
+              <li>Veri taşınabilirliği hakkını kullanma.</li>
+            </ul>
+            <p>
+              Bu haklarınızı kullanmak için aşağıdaki iletişim kanalları üzerinden bizimle iletişime geçebilirsiniz.
+            </p>
+          </article>
+
+          <article class="privacy-card" id="cerezler">
+            <h2><span class="num">7</span> Çerezler</h2>
+            <p>
+              Web sitemiz, kullanıcı deneyimini geliştirmek ve site trafiğini analiz etmek için
+              çerezlerden faydalanabilir.
+            </p>
+            <ul>
+              <li>Zorunlu çerezler: Temel işlevlerin çalışması için gereklidir.</li>
+              <li>Performans çerezleri: Kullanım istatistiklerini anonim şekilde toplar.</li>
+              <li>Tercih çerezleri: Dil ve görünüm tercihlerinizi hatırlar.</li>
+            </ul>
+            <p>
+              Tarayıcınızın ayarlarından çerezleri istediğiniz zaman engelleyebilir veya
+              silebilirsiniz. Bu durumda bazı özellikler düzgün çalışmayabilir.
+            </p>
+          </article>
+
+          <article class="privacy-card" id="iletisim-bilgileri">
+            <h2><span class="num">8</span> İletişim</h2>
+            <p>
+              Gizlilik politikamızla ilgili soru, talep veya geri bildirimleriniz için bizimle
+              iletişime geçebilirsiniz.
+            </p>
+            <ul>
+              <li><strong>E-posta:</strong> <a href="mailto:info@betontakip.com" style="color: var(--gold-dark); font-weight: 600;">info@betontakip.com</a></li>
+              <li><strong>Adres:</strong> Beton Takip Teknoloji, Merkez Ofis, Türkiye</li>
+            </ul>
+            <p>
+              Talepleriniz en kısa sürede ve yasal süreler içinde yanıtlanır. Bu politika,
+              gerektiğinde güncellenebilir ve değişiklikler bu sayfa üzerinden duyurulur.
+            </p>
+          </article>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div>© 2026 Beton Takip</div>
+        <nav class="legal-links" aria-label="Yasal bağlantılar">
+          <a href="gizlilik.html" class="active">Gizlilik Politikası</a>
+          <span>•</span>
+          <a href="Betan.html">Kullanım Şartları</a>
+        </nav>
+      </footer>
+    </div>
+  </body>
+</html>
